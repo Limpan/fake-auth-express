@@ -1,0 +1,30 @@
+{
+  "name": "fake-auth-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd ./src && ts-node-dev --respawn --transpile-only index.ts | pino-pretty",
+    "start": "node ./dist/index.js",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/express-session": "^1.17.8",
+    "@types/node": "^20.6.3",
+    "autoprefixer": "^10.4.16",
+    "pino-pretty": "^10.2.0",
+    "postcss-cli": "^10.1.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "pino-http": "^8.5.0"
+  }
+}

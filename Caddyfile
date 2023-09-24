@@ -1,0 +1,10 @@
+localhost {
+    forward_auth not /_/ {
+        uri          http://localhost:8000
+        copy_headers {
+            X-Remote-User
+        }
+    }
+
+    reverse_proxy http://localhost:3000
+}
