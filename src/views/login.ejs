@@ -1,123 +1,145 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Fake Auth</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;1,300&display=swap"
-      rel="stylesheet"
-    />
-    <style media="screen">
-      *,
-      *:before,
-      *:after {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        font-size: 18px;
-        font-family: "Open Sans", sans-serif;
-        font-weight: 400;
-      }
-      .background,
-      form {
-        width: 400px;
-        height: 340px;
-        position: absolute;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 50%;
-      }
-      .shape {
-        position: absolute;
-        border-radius: 50%;
 
-      }
-      .shape:nth-child(3n) {
-        width: 200px;
-        height: 200px;
-        background: linear-gradient(60deg, #39e5b6, #70b2d9);
-        left: -80px;
-        top: -60px;
-      }
-      .shape:nth-child(3n + 1) {
-        width: 160px;
-        height: 160px;
-        background: linear-gradient(270deg, #F39FDC, #9AB5E1);
-        right: -90px;
-        top: -20px;
-      }
-      .shape:nth-child(3n + 2) {
-        width: 180px;
-        height: 180px;
-        background: linear-gradient(120deg, #ff5858, #ffff45);
-        right: -20px;
-        bottom: -80px;
-      }
-      form {
-        backdrop-filter: blur(0.5em);
-        background-color: rgba(60, 60, 60, 0.03);
-        border: 1px solid rgba(150, 150, 150, 0.5);
-        border-radius: 0.2em;
-        box-shadow: 0.05em 0.05em 0.5em rgba(150, 150, 150, 0.5);
-        padding: 2em;
-      }
-      form * {
-        color: rgb(30, 30, 30);
-        letter-spacing: 0.05em;
-        outline: none;
-        border: none;
-      }
-      form h1 {
-        text-align: center;
-        font-style: italic;
-        font-weight: 300;
-      }
-      label {
-        display: block;
-        margin-top: 2em;
-        margin-bottom: 0.25em;
-      }
-      input {
-        display: block;
-        height: 3em;
-        width: 100%;
-        font-family: "Open Sans", sans-serif;
-        font-size: 1em;
-        border-radius: 0.2em;
-      }
-      input[type="input"] {
-        background-color: rgba(245, 245, 245, 1);
-        border-bottom: 2px solid rgba(60, 60, 60, 0.2);
-        padding: 0.5em;
-      }
-      input[type="submit"] {
-        margin-top: 2em;
-        background-color: rgba(255, 255, 255, 1);
-        font-weight: 500;
-      }
-      input[type="submit"]:hover {
-        background-color: rgba(245, 245, 245, 1);
-      }
-    </style>
-  </head>
-  <body>
-    <div class="background">
-      <div class="shape"></div>
-      <div class="shape"></div>
-      <div class="shape"></div>
-    </div>
-    <form action="/_/login" method="post">
-      <h1>Logga in</h1>
-      <input type="hidden" name="url" id="url" value="<%= redirectURL %>" />
+<head>
+  <title>Fake Auth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;1,300&display=swap"
+    rel="stylesheet" />
+  <style media="screen">
+    *,
+    *:before,
+    *:after {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
 
-      <label for="ssn">Personnummer</label>
-      <input type="input" name="ssn" id="ssn" />
+    body {
+      margin: 0;
+      font-size: 18px;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      overflow: hidden;
+    }
 
-      <input type="submit" value="Logga in" />
-    </form>
-  </body>
+    .background,
+    form {
+      width: 400px;
+      height: 340px;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+
+    }
+
+    .shape:nth-child(3n) {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(60deg, #39e5b6, #70b2d9);
+      left: -80px;
+      top: -60px;
+    }
+
+    .shape:nth-child(3n + 1) {
+      width: 160px;
+      height: 160px;
+      background: linear-gradient(270deg, #F39FDC, #9AB5E1);
+      right: -90px;
+      top: -20px;
+    }
+
+    .shape:nth-child(3n + 2) {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(120deg, #ff5858, #ffff45);
+      right: -20px;
+      bottom: -80px;
+    }
+
+    form {
+      backdrop-filter: blur(0.5em);
+      background-color: rgba(60, 60, 60, 0.03);
+      border: 1px solid rgba(150, 150, 150, 0.5);
+      border-radius: 0.2em;
+      box-shadow: 0.05em 0.05em 0.5em rgba(150, 150, 150, 0.5);
+      padding: 2em;
+    }
+
+    form * {
+      color: rgb(30, 30, 30);
+      letter-spacing: 0.05em;
+      outline: none;
+      border: none;
+    }
+
+    form h1 {
+      text-align: center;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    label {
+      display: block;
+      margin-top: 2em;
+      margin-bottom: 0.25em;
+    }
+
+    input {
+      display: block;
+      height: 3em;
+      width: 100%;
+      font-family: "Open Sans", sans-serif;
+      font-size: 1em;
+      border-radius: 0.2em;
+    }
+
+    input[type="input"] {
+      background-color: rgba(245, 245, 245, 1);
+      border-bottom: 2px solid rgba(60, 60, 60, 0.2);
+      padding: 0.5em;
+    }
+
+    input[type="input"].error {
+      background-color: rgba(255, 0, 0, 0.1);
+      border-bottom: 2px solid rgba(255, 60, 60, 0.2);
+    }
+
+    input[type="submit"] {
+      margin-top: 2em;
+      background-color: rgba(255, 255, 255, 1);
+      font-weight: 500;
+    }
+
+    input[type="submit"]:hover {
+      background-color: rgba(245, 245, 245, 1);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <form action="/_/login" method="post">
+    <h1>Logga in</h1>
+    <input name="_csrf" value="<%= csrfToken %>" type="hidden" />
+    <input name="url" value="<%= redirectURL %>" type="hidden" />
+
+    <label for="ssn">Personnummer</label>
+    <input type="input" name="ssn" id="ssn" class="<% if (error) { %>error<% } %>" />
+
+    <input type="submit" value="Logga in" />
+  </form>
+</body>
+
 </html>

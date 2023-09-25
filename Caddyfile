@@ -1,10 +1,26 @@
-localhost {
-    forward_auth not /_/ {
-        uri          http://localhost:8000
-        copy_headers {
-            X-Remote-User
-        }
-    }
+{
+	http_port 4000
+	auto_https off
+	admin off
+}
 
-    reverse_proxy http://localhost:3000
+:4000 {
+	# Proxy fake authentication portal
+	reverse_proxy /_/* localhost:8000
+
+	# Use fake authentication portal to authenticate everything else
+	reverse_proxy localhost:8000 {
+		method GET
+		rewrite /_/verify
+
+		header_up X-Forwarded-Uri {uri}
+
+		@good status 2xx
+		handle_response @good {
+			request_header Remote-User {rp.header.Remote-User}
+		}
+	}
+
+	# Proxy the application
+	reverse_proxy localhost:3000
 }
