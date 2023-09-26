@@ -77,7 +77,7 @@ app.get('/_/verify', (req, res) => {
 
   req.log.info({ session: req.session });
 
-  res.header("X-Remote-User", req.session.ssn);
+  res.header("Remote-User", req.session.ssn);
   res.status(200);
   res.end();
 });
